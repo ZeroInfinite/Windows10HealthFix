@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D47F62DD-6772-49B8-9A91-90135774A008}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Windows10HealthFixProject.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Windows10HealthFixProject">
+        <MSBuild Projects="Windows10HealthFixProject.dproj"/>
+    </Target>
+    <Target Name="Windows10HealthFixProject:Clean">
+        <MSBuild Projects="Windows10HealthFixProject.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Windows10HealthFixProject:Make">
+        <MSBuild Projects="Windows10HealthFixProject.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Windows10HealthFixProject"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Windows10HealthFixProject:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Windows10HealthFixProject:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
