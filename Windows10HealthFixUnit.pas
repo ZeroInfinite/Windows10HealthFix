@@ -128,6 +128,7 @@ begin
     FillChar(start, SizeOf(start), #0);
     start.cb := SizeOf(start);
     start.hStdOutput := WritePipe;
+    start.hStdError := WritePipe;
     start.hStdInput := ReadPipe;
     start.dwFlags := STARTF_USESTDHANDLES + STARTF_USESHOWWINDOW;
     start.wShowWindow := SW_HIDE;
